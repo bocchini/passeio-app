@@ -1,0 +1,14 @@
+{
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Restaurantes",
+      "descricao": "lugares para alimentação"
+    },
+    {
+      "id": "e7ea",
+      "nome": "Praias",
+      "descricao": "Lugares para tomar banho com a familia"
+    }
+  ]
+}

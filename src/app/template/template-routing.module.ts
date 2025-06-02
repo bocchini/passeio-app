@@ -11,6 +11,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('../categorias/categorias.module')
           .then(m => m.CategoriasModule),
+          pathMatch: 'full'
+      },
+      {
+        path: 'lugares',
+        loadChildren: () =>
+          import('../lugares/lugares.module')
+          .then(l => l.LugaresModule),
+          pathMatch: 'full'
       }
     ]
   },
