@@ -10,5 +10,15 @@
       "nome": "Praias",
       "descricao": "Lugares para tomar banho com a familia"
     }
+  ],
+  "lugares": [
+    {
+      "id": "f493",
+      "nome": "Praia do Sol",
+      "categoria": "Praias",
+      "localizacao": "Santana",
+      "urlFoto": "https://paraibacriativa.com.br/wp-content/uploads/2016/09/Praia-do-Sol_1-1024x576.jpg",
+      "avaliacao": "4"
+    }
   ]
 }

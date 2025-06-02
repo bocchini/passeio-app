@@ -1,3 +1,4 @@
+import { LugarService } from './../lugar.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Categoria } from '../../categorias/categoria';
@@ -13,7 +14,7 @@ export class LugarComponent implements OnInit {
   camposForm: FormGroup;
   categorias: Categoria[] = [];
 
-  constructor(private categoriaSevice: CategoriaService){
+  constructor(private categoriaSevice: CategoriaService, private service: LugarService){
     this.camposForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       categoria: new FormControl('', Validators.required),
@@ -29,10 +30,19 @@ export class LugarComponent implements OnInit {
   }
 
   salvar(){
-    console.log('Valores', this.camposForm);
+    this.camposForm.markAllAsTouched();
+    if(this.camposForm.valid){
+      this.service.salvar(this.camposForm.value).subscribe({
+        next: (resultado) => {
+          console.log('Salvo com sucesso', resultado),
+          this.camposForm.reset();
+        },
+        error: erro => console.error(erro)
+      });
+    }
   }
 
-    estaInvalido(nomeCampo: string): boolean{
+  estaInvalido(nomeCampo: string): boolean{
     const campo = this.camposForm.get(nomeCampo);
     return campo?.invalid && campo?.touched
            && campo?.errors?.['required']|| false;
