@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Lugares } from './lugares';
@@ -16,5 +16,21 @@ export class LugarService {
 
   obterTodos(): Observable<Lugares[]>{
     return this.http.get<Lugares[]>(`${this.baseUrl}/lugares`);
+  }
+
+  filtrar(nome:string, categoria: string): Observable<Lugares[]>{
+    let params = new HttpParams();
+
+    if(categoria && categoria === '-1')
+      return this.obterTodos();
+    else if (nome){
+      params = params.set('nome_like', nome);
+    }else if(categoria){
+      params = params.set('categoria', categoria)
+    }
+
+    return this.http.get<Lugares[]>(`${this.baseUrl}/lugares`,{
+      params
+    });
   }
 }

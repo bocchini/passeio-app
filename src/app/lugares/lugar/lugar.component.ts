@@ -15,14 +15,19 @@ export class LugarComponent implements OnInit {
   categorias: Categoria[] = [];
 
   constructor(private categoriaSevice: CategoriaService, private service: LugarService){
-    this.camposForm = new FormGroup({
+     this.camposForm =this.validador();
+  }
+
+  private validador() : FormGroup {
+    return new FormGroup({
       nome: new FormControl('', Validators.required),
       categoria: new FormControl('', Validators.required),
       localizacao: new FormControl('', Validators.required),
       urlFoto: new FormControl('', Validators.required),
       avaliacao: new FormControl('', Validators.required)
-    })
+    });
   }
+
   ngOnInit(): void {
     this.categoriaSevice.obterTodas().subscribe({
       next: (listarCategorias => this.categorias = listarCategorias)
