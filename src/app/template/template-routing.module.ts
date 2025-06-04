@@ -11,21 +11,24 @@ const routes: Routes = [
         loadChildren: () =>
           import('../categorias/categorias.module')
           .then(m => m.CategoriasModule),
-          pathMatch: 'full'
+          pathMatch: 'full',
+          data: { titulo: 'Categorias', subtitulo : 'Realize o cadastro de novas categorias'}
       },
       {
         path: 'lugares',
         loadChildren: () =>
           import('../lugares/lugares.module')
           .then(l => l.LugaresModule),
-          pathMatch: 'full'
+          pathMatch: 'full',
+          data: { titulo: 'Lugares', subtitulo : 'Realize o cadastro de novos lugares' }
       },
       {
         path: 'galeria',
         loadChildren: () =>
           import('../galeria/galeria.module')
             .then(g => g.GaleriaModule),
-          pathMatch: 'full'
+          pathMatch: 'full',
+           data: { titulo: 'Lista de lugares legais', subtitulo : 'Descubra os melhores lugares para explorar e se divertir' }
       }
     ]
   },
