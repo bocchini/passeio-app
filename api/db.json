@@ -19,6 +19,14 @@
       "localizacao": "Santana",
       "urlFoto": "https://paraibacriativa.com.br/wp-content/uploads/2016/09/Praia-do-Sol_1-1024x576.jpg",
       "avaliacao": "4"
+    },
+    {
+      "id": "e10d",
+      "nome": "Praia do espelho",
+      "categoria": "Praias",
+      "localizacao": "Bahia",
+      "urlFoto": "https://www.melhoresdestinos.com.br/wp-content/uploads/2020/11/praia-do-espelho-capa2019.jpg",
+      "avaliacao": "4"
     }
   ]
 }

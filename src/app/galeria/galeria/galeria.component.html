@@ -1,0 +1,36 @@
+<form #frm="ngForm">
+  <div class="p-4 bg-white shadow">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+      <input type="text"
+      [(ngModel)]="nomeFiltro" name="nomeFiltro"
+      class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400"
+      placeholder="Pesquisar pelo nome do local"
+      />
+      <select
+      class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400"
+      name="categoriasFiltro"
+      [(ngModel)]="categoriaFiltro">
+        <option [value]="-1">Todas as categorias</option>
+        <option *ngFor="let cate of categoriasFiltro" [value]="cate.nome">{{cate.nome}}</option>
+      </select>
+      <button (click)="filtrar()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-800">
+        Pesquisar
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="lugaresList">
+  <div class="bg-white shadow rounded overflow-hidden" *ngFor="let lugar of lugares">
+    <img [src]="lugar.urlFoto" [alt]="lugar.nome" class="w-full h-40 object-cover">
+    <div class="p-4">
+      <h2 class="text-lg font-semibold">{{lugar.nome}}</h2>
+      <p class="text-gray-500">Categoria: <span class="text-blue-600">{{lugar.categoria}}</span></p>
+      <p class="text-gray-500">Localização: {{lugar.localizacao}}</p>
+      <div class="mt-2 flex items-center">
+        <span class="text-yellow-500" [innerHTML]="getTotalEstrelasLugar(lugar)"></span>
+        <span class="ml-2 text-gray-600">{{lugar.avaliacao}}</span>
+      </div>
+    </div>
+  </div>
+</div>
