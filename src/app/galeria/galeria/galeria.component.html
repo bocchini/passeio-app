@@ -6,7 +6,7 @@
       class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400"
       placeholder="Pesquisar pelo nome do local"
       />
-      <select
+      <select (ngModelChange)="filtrar()"
       class="w-full border border-gray-300 p-2 rounded shadow-sm focus:ring focus:ring-blue-400"
       name="categoriasFiltro"
       [(ngModel)]="categoriaFiltro">
